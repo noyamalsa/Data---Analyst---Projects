@@ -1,0 +1,73 @@
+﻿# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 22 11:15:53 2025
+
+@author: User
+"""
+
+
+import pandas as pd
+import seaborn as sb
+df = sb.load_dataset('diamonds')
+df
+
+q1
+
+
+max_price = df['price'].max()
+diamond_max = df[df['price'] == max_price]
+print(diamond_max[['carat', 'cut', 'color', 'clarity']])
+
+
+q2
+
+mean_price = df['price'].mean()
+print(f"המחיר הממוצע של יהלום הוא: {mean_price:.2f}")
+
+
+
+q3
+
+counts_by_cut = df['cut'].value_counts()
+
+if 'Ideal' in counts_by_cut:
+    print(counts_by_cut['Ideal'])
+else:
+    print(0)
+
+
+
+q4
+
+print("Unique diamond colors:", df['color'].nunique())
+print("Color types:", ', '.join(sorted(df['color'].unique())))
+
+
+q5
+
+
+
+median_carat_premium = df[df['cut'] == 'Premium']['carat'].median()
+print(f"חציון הקאראט : {median_carat_premium:.2f}")
+
+
+
+
+q6
+
+print(df.groupby('cut')['carat'].mean())
+
+
+
+q7
+
+average_price_by_color=df.groupby('color')['price'].mean()
+print(average_price_by_color)
+
+
+
+
+
+
+
+
